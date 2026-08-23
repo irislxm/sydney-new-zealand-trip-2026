@@ -245,35 +245,106 @@
 
     @media (max-width: 620px) {
       .wrap { width: min(100% - 24px, 1160px); }
-      .hero { min-height: 590px; }
-      .hero-inner { padding-top: 44px; }
+      .hero { min-height: 430px; }
+      .hero::before { width: 430px; height: 430px; right: -210px; top: -205px; box-shadow: 0 0 0 42px rgba(255,255,255,.035), 0 0 0 92px rgba(255,255,255,.025); }
+      .hero::after { height: 112px; clip-path: polygon(0 88%, 15% 50%, 27% 70%, 43% 27%, 57% 63%, 72% 37%, 88% 76%, 100% 52%, 100% 100%, 0 100%); }
+      .hero-inner { padding: 38px 0 118px; }
+      h1 { max-width: 96%; font-size: clamp(37px, 11vw, 50px); line-height: 1.08; letter-spacing: -.04em; }
+      .hero-sub { margin: 18px 0 20px; font-size: 15px; line-height: 1.65; }
+      .hero-meta { gap: 7px; }
+      .hero-chip { padding: 6px 10px; font-size: 12px; }
+      .nav-inner { width: auto; margin: 0; padding: 8px 12px; gap: 4px; scroll-padding-inline: 12px; }
+      .nav a { min-height: 38px; display: inline-flex; align-items: center; padding: 7px 10px; font-size: 12px; }
       .stats { margin-top: 0; gap: 10px; }
-      .stat { min-height: 114px; padding: 17px; }
-      .stat b { font-size: 25px; }
-      main { padding-top: 42px; }
-      section { margin-top: 58px; }
+      .stat { min-height: 92px; padding: 14px; border-radius: 17px; }
+      .stat b { font-size: 23px; }
+      .stat span { font-size: 11px; line-height: 1.35; }
+      main { padding-top: 30px; padding-bottom: 62px; }
+      section { margin-top: 46px; }
+      h2 { margin-bottom: 8px; font-size: 28px; line-height: 1.18; }
+      .section-lead { margin-bottom: 20px; font-size: 14px; line-height: 1.6; }
       .map-overview { margin-bottom: 28px; }
+      .map-overview-head { margin-bottom: 12px; }
+      .map-note { font-size: 10.5px; line-height: 1.55; }
+      .route-map-grid { gap: 12px; }
+      .map-card { border-radius: 15px; }
       .map-card-head { padding: 16px 16px 10px; }
+      .map-card-head h3 { font-size: 15px; }
+      .map-card-head p { font-size: 10.5px; }
       .map-scale-tag { display: none; }
       .map-card-cbd .landmark-index, .map-card-coast .landmark-index, .map-card-nz .landmark-index { grid-template-columns: 1fr; padding: 12px 15px; }
       .landmark-name { font-size: 12px; }
       .landmark-name small { font-size: 10px; }
       .stay-address-list { grid-template-columns: 1fr; padding: 12px 15px; }
-      .route-caption, .stay-caption, .map-details summary { padding-left: 15px; padding-right: 15px; }
+      .route-caption, .stay-caption, .map-details summary { padding-left: 15px; padding-right: 15px; font-size: 10.5px; }
       .map-card-cbd .trip-map-canvas, .map-card-coast .trip-map-canvas { aspect-ratio: 4 / 3.1; }
       .map-card-nz .trip-map-canvas { aspect-ratio: 4 / 3.4; }
       .route { grid-template-columns: repeat(2, 1fr); }
+      .route li { min-height: 78px; padding-top: 25px; font-size: 11px; }
       .route li:nth-child(even)::after { display: none; }
+      .alerts, .booking-grid { gap: 12px; }
+      .alert, .panel, .booking-card { padding: 18px; border-radius: 18px; }
+      .alert { grid-template-columns: 36px 1fr; gap: 11px; }
+      .alert-icon { width: 36px; height: 36px; border-radius: 11px; font-size: 17px; }
+      .alert h3, .booking-card h3 { font-size: 17px; line-height: 1.35; }
+      .alert p, .booking-card p { font-size: 13px; line-height: 1.6; }
+      .check-item { padding: 12px 0; }
+      .check-item label b { font-size: 14px; }
+      .filters { flex-wrap: nowrap; overflow-x: auto; margin: 16px -12px 18px; padding: 0 12px 6px; scrollbar-width: none; scroll-padding-inline: 12px; }
+      .filter { flex: 0 0 auto; min-height: 40px; padding: 7px 13px; font-size: 12px; }
       .food-grid, .prep-grid { grid-template-columns: 1fr; }
+      .food-card { min-height: 0; padding: 19px; border-radius: 18px; }
+      .food-card h3, .panel h3 { font-size: 18px; }
       .day { display: block; }
-      .day-rail { display: grid; grid-template-columns: auto auto 1fr; align-items: end; gap: 9px; padding: 16px 20px; }
+      .days { gap: 14px; }
+      .day { border-radius: 19px; }
+      .day-rail { display: grid; grid-template-columns: auto auto 1fr; align-items: end; gap: 8px; padding: 13px 16px; }
+      .day-num { font-size: 10px; }
       .day-date { margin: 0; font-size: 23px; }
       .day-week { text-align: right; }
-      .day-body { padding: 22px 18px; }
+      .day-body { padding: 19px 15px 18px; }
       .day-head { display: block; }
-      .tags { justify-content: flex-start; margin-top: 12px; }
-      .timeline li { grid-template-columns: 60px 1fr; padding-left: 15px; gap: 9px; }
+      .day h3 { font-size: 20px; line-height: 1.32; }
+      .day-summary { font-size: 13px; line-height: 1.55; }
+      .tags { justify-content: flex-start; margin-top: 10px; gap: 5px; }
+      .tag { padding: 4px 8px; font-size: 10.5px; }
+      .timeline { margin-top: 18px; }
+      .timeline li { grid-template-columns: 52px 1fr; padding: 0 0 15px 14px; gap: 8px; }
+      .time { font-size: 12px; }
+      .event b { font-size: 14px; line-height: 1.45; }
+      .event span { font-size: 12.5px; line-height: 1.55; }
+      .parking-note { margin-top: 17px; padding: 12px; border-radius: 14px; }
+      .parking-note-head { display: block; margin-bottom: 8px; }
+      .parking-note-head b { font-size: 13px; }
+      .parking-note-head span { display: block; margin-top: 2px; font-size: 10px; }
+      .parking-spot { padding: 10px; }
+      .parking-spot strong { font-size: 12.5px; }
+      .parking-spot p { font-size: 11.5px; }
+      .parking-links a { min-height: 34px; display: inline-flex; align-items: center; padding-right: 5px; }
+      details { margin-top: 15px; }
+      summary { padding-top: 13px; font-size: 13px; }
+      .detail-grid { gap: 8px; }
+      .mini { min-height: 0; padding: 13px; }
+      .day-actions { display: grid; grid-template-columns: repeat(2, minmax(0,1fr)); gap: 7px; margin-top: 14px; }
+      .day-actions .btn { min-height: 43px; display: flex; align-items: center; justify-content: center; padding: 8px 9px; text-align: center; font-size: 11.5px; line-height: 1.35; overflow-wrap: anywhere; }
+      .day-actions .btn[aria-label="住宿"] { grid-column: 1 / -1; justify-content: flex-start; text-align: left; }
       .footer-inner { display: block; }
+      .footer { padding: 22px 0 34px; font-size: 11px; }
+      .toast { left: 12px; right: 12px; bottom: 12px; text-align: center; }
+    }
+
+    @media (max-width: 380px) {
+      .wrap { width: calc(100% - 18px); }
+      .hero { min-height: 410px; }
+      .hero-inner { padding-top: 32px; }
+      h1 { font-size: 35px; }
+      .hero-sub { font-size: 14px; }
+      .stats { gap: 7px; }
+      .stat { min-height: 86px; padding: 12px; }
+      .stat b { font-size: 21px; }
+      .filters { margin-left: -9px; margin-right: -9px; padding-left: 9px; padding-right: 9px; }
+      .day-actions { grid-template-columns: 1fr; }
+      .day-actions .btn[aria-label="住宿"] { grid-column: auto; }
     }
 
     @media print {
@@ -709,9 +780,9 @@
         labels: [
           { key:'opera', name:['悉尼歌剧院','Sydney Opera House'], o:[15,-24] },
           { key:'rocks', name:['岩石区','The Rocks'], o:[-16,19] },
-          { key:'observatory', name:['天文台山','Observatory Hill'], o:[-15,-23] },
+          { key:'observatory', name:['天文台山','Observatory Hill'], o:[-15,-23], mobile:false },
           { key:'usyd', name:['悉尼大学','University of Sydney'], o:[16,20] },
-          { key:'botanic', name:['皇家植物园','Royal Botanic Garden'], o:[15,22] },
+          { key:'botanic', name:['皇家植物园','Royal Botanic Garden'], o:[15,22], mobile:false },
           { key:'mrs', name:['麦考利夫人座椅','Mrs Macquarie’s Chair'], o:[-15,-23] }
         ],
         points: {
@@ -766,7 +837,7 @@
         ],
         labels: [
           { key:'queenstown', name:['皇后镇','Queenstown'], o:[-17,-24] },
-          { key:'arrowtown', name:['箭镇','Arrowtown'], o:[15,-20] },
+          { key:'arrowtown', name:['箭镇','Arrowtown'], o:[15,-20], mobile:false },
           { key:'wanaka', name:['瓦纳卡','Wānaka'], o:[15,-21] },
           { key:'mountCook', name:['奥拉基 / 库克山','Aoraki / Mt Cook'], o:[-17,-24] },
           { key:'hooker', name:['胡克谷步道','Hooker Valley Track'], o:[-17,23] },
@@ -973,7 +1044,7 @@
       // 只为核心景点显示双语标签，并用手动方向 + 轻量避让保持错落。
       const placedLabels = [];
       const overlaps = (a, b) => !(a.x + a.w + 3 < b.x || b.x + b.w + 3 < a.x || a.y + a.h + 3 < b.y || b.y + b.h + 3 < a.y);
-      (def.labels || []).forEach((label, labelIndex) => {
+      (def.labels || []).filter(label => !small || label.mobile !== false).forEach((label, labelIndex) => {
         const anchor = project(label.key);
         const dx = label.o?.[0] ?? 12;
         const dy = label.o?.[1] ?? -16;
