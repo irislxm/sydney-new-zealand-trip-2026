@@ -185,6 +185,17 @@
     .time { font-weight: 900; color: var(--ocean); font-variant-numeric: tabular-nums; }
     .event b { display: block; }
     .event span { color: var(--ink-soft); font-size: 14px; }
+    .parking-note { margin-top: 20px; padding: 15px; border: 1px solid rgba(215,144,34,.22); border-radius: 17px; background: #fffaf0; }
+    .parking-note-head { display: flex; align-items: baseline; justify-content: space-between; gap: 12px; margin-bottom: 10px; }
+    .parking-note-head b { color: #775414; font-size: 14px; }
+    .parking-note-head span { color: var(--ink-soft); font-size: 11px; }
+    .parking-spots { display: grid; grid-template-columns: repeat(2, minmax(0,1fr)); gap: 8px; }
+    .parking-spot { min-width: 0; padding: 11px 12px; border: 1px solid rgba(23,50,74,.08); border-radius: 12px; background: rgba(255,255,255,.84); }
+    .parking-spot strong { display: block; color: var(--ink); font-size: 13px; line-height: 1.35; }
+    .parking-spot p { margin: 4px 0 7px; color: var(--ink-soft); font-size: 12px; line-height: 1.48; }
+    .parking-links { display: flex; flex-wrap: wrap; gap: 9px; }
+    .parking-links a { color: var(--ocean); font-size: 11px; font-weight: 850; text-decoration: none; }
+    .parking-links a:hover { text-decoration: underline; text-underline-offset: 3px; }
     details { margin-top: 18px; border-top: 1px dashed var(--line); }
     summary { padding: 16px 0 0; cursor: pointer; font-weight: 900; color: var(--ocean); }
     .detail-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 12px; margin-top: 13px; }
@@ -229,6 +240,7 @@
       .food-grid, .prep-grid { grid-template-columns: 1fr 1fr; }
       .day { grid-template-columns: 120px 1fr; }
       .detail-grid { grid-template-columns: 1fr; }
+      .parking-spots { grid-template-columns: 1fr; }
     }
 
     @media (max-width: 620px) {
@@ -490,7 +502,7 @@
     <section id="prepare">
       <h2>出发前清单</h2>
       <div class="prep-grid">
-        <article class="panel"><h3>🚗 自驾文件</h3><ul><li>中国驾照原件 + NZTA 认可英文翻译件 / 合规 IDP；翻译件不能单独代替驾照。</li><li>全员安全带；靠左行驶；山路窄弯多，地图时间外另加 15–20%。</li><li>单车道桥：红圈大箭头方向让行，蓝底大箭头方向有优先权，但都先减速确认。</li><li>每天开车前看 <a class="official-link" href="https://www.journeys.nzta.govt.nz/" target="_blank" rel="noreferrer">NZTA Journey Planner</a>。</li></ul></article>
+        <article class="panel"><h3>🚗 自驾文件与停车</h3><ul><li>中国驾照原件 + NZTA 认可英文翻译件 / 合规 IDP；翻译件不能单独代替驾照。</li><li>全员安全带；靠左行驶；山路窄弯多，地图时间外另加 15–20%。</li><li>路边停车应顺行停在左侧；黄色虚线、弯道坡顶、路口 6 米内、车道与人行道均不可停。只能进入明确的观景停车带，不在路肩倒车等位。</li><li>单车道桥：红圈大箭头方向让行，蓝底大箭头方向有优先权，但都先减速确认。</li><li>每天开车前看 <a class="official-link" href="https://www.journeys.nzta.govt.nz/" target="_blank" rel="noreferrer">NZTA Journey Planner</a>；停车规则查看 <a class="official-link" href="https://www.nzta.govt.nz/driving-skills/learn-to-drive/roadcode/general-road-code/about-driving/stopping-and-parking/where-not-to-park" target="_blank" rel="noreferrer">NZTA 停车规范</a>。</li></ul></article>
         <article class="panel"><h3>🧳 衣物装备</h3><ul><li>防水防风外层、抓绒 / 薄羽绒、帽子手套；春季山区一天四季。</li><li>防滑运动鞋或轻徒步鞋、登山杖 1 对；胡克谷（Hooker Valley）备水 1–1.5L/人。</li><li>泳衣、快干内衣、墨镜、防晒、晕船药。</li><li>车载充电线、离线地图、保温杯、小型垃圾袋。</li></ul></article>
         <article class="panel"><h3>🛂 入境申报</h3><ul><li>澳大利亚：食品、植物与动物制品不确定就申报。</li><li>新西兰：所有食品，以及用过的徒步鞋 / 户外装备都要如实申报；鞋底提前彻底清洁。</li><li>抵达前完成 New Zealand Traveller Declaration。</li><li>悉尼飞皇后镇当天把食物集中放，方便新西兰入境检查。</li></ul></article>
         <article class="panel"><h3>🌦️ 48 小时天气法</h3><ul><li>城市日小雨照走；海岸大风时缩短杰林贡（Gerringong）。</li><li>库克山两天可互换，晴天留给胡克谷（Hooker Valley）。</li><li>风强 / 降雨时改 Kea Point（短线观景步道）+ 塔斯曼湖（Tasman Lake）平路，不硬走 10 km。</li><li>蒂卡普湖（Lake Tekapo）第一晚先免费观星，第二晚用已订团兜底。</li></ul></article>
@@ -556,7 +568,9 @@
           ["16:30","视航班状态决定箭镇（Arrowtown）","若 15:30 后仍未取到车，直接取消，改皇后镇湖边。"],
           ["17:00","箭镇历史街区（Arrowtown Historic Precinct）","白金汉街（Buckingham St）+ 箭河（Arrow River）平路短走。"],
           ["19:10","提前吃晚餐后返程","9.29 日落约 19:50；不建议第一次夜驾太晚。"]
-        ], food:"箭镇（Arrowtown）轻食 / Provisions；想吃 Aosta 餐厅请预约，航班延误时及时取消。", rain:"改皇后镇购物中心（Queenstown Mall）+ 瓦卡蒂普湖（Lake Wakatipu）湖边，箭镇（Arrowtown）留作不执行项。", transit:"第一段自驾只走熟悉路线，停车后再逛；不要把昂森温泉（Onsen Hot Pools）绑在航班抵达日。", map:"https://www.google.com/maps/dir/Queenstown+Airport/Goldfields+Queenstown/Arrowtown"
+        ], food:"箭镇（Arrowtown）轻食 / Provisions；想吃 Aosta 餐厅请预约，航班延误时及时取消。", rain:"改皇后镇购物中心（Queenstown Mall）+ 瓦卡蒂普湖（Lake Wakatipu）湖边，箭镇（Arrowtown）留作不执行项。", transit:"第一段自驾只走熟悉路线，停车后再逛；不要把昂森温泉（Onsen Hot Pools）绑在航班抵达日。", parking:[
+          {name:"兰肖巷停车场（Ramshaw Lane Car Park）", note:"箭镇优先停这里，再步行约 5 分钟进白金汉街。白金汉街沿线多为 P30 / P60 短时位，不适合作为长时间逛街的首选。", map:"https://www.google.com/maps/search/?api=1&query=Ramshaw+Lane+Car+Park+Arrowtown", source:"https://www.qldc.govt.nz/services/transport-and-parking/parking"}
+        ], map:"https://www.google.com/maps/dir/Queenstown+Airport/Goldfields+Queenstown/Arrowtown"
       },
       {
         region:"Queenstown", date:"9.30", week:"周三", title:"皇后镇（Queenstown）高光日 · 船、牧场与缆车", summary:"厄恩斯劳号蒸汽船（TSS Earnslaw）+ 瓦尔特峰牧场（Walter Peak）+ 天空缆车（Skyline）", hotel:"Goldfields Gem（皇后镇住宿）· Queenstown", drive:"市区公交 / 步行；尽量不开车", effort:"轻量活动日", tags:["TSS 必玩","Skyline + Luge"], must:true,
@@ -568,7 +582,10 @@
           ["16:30","皇后镇天空缆车（Skyline Gondola）上山","先确认滑板车（Luge）关闭时间，再完成 3 次。"],
           ["18:15","山顶早晚餐 / 咖啡","不订自助也可在 Café 吃，给日落留位置。"],
           ["19:30","观景台看日落与蓝调","9.30 日落约 19:51；20:20 左右下山。"]
-        ], food:"中午快速补给；山顶想省心可订 Stratosfare 餐厅，想灵活就天空咖啡馆（Skyline Café）。", rain:"厄恩斯劳号（TSS Earnslaw）通常照常但以运营通知为准；能见度差时把天空缆车（Skyline）改到当日较清晰时段。", transit:"市中心停车麻烦，住宿可打车 / 公交进城；全日活动点都在皇后镇中心（Queenstown CBD）。", map:"https://www.google.com/maps/dir/RealNZ+Queenstown+Visitor+Centre/Skyline+Queenstown"
+        ], food:"中午快速补给；山顶想省心可订 Stratosfare 餐厅，想灵活就天空咖啡馆（Skyline Café）。", rain:"厄恩斯劳号（TSS Earnslaw）通常照常但以运营通知为准；能见度差时把天空缆车（Skyline）改到当日较清晰时段。", transit:"市中心停车麻烦，住宿可打车 / 公交进城；全日活动点都在皇后镇中心（Queenstown CBD）。", parking:[
+          {name:"边界街停车场（Boundary Street Car Park）", note:"去蒸汽船码头（Steamer Wharf）的相对省心备选，预留约 12–15 分钟步行；市中心免费路边位很少，按入口牌示付费和限时。", map:"https://www.google.com/maps/search/?api=1&query=Boundary+Street+Car+Park+Queenstown", source:"https://www.qldc.govt.nz/services/transport-and-parking/parking"},
+          {name:"布雷肯街多层停车场（Brecon Street Car Park）", note:"就在 Skyline 缆车下站后方，共 297 个公共车位，车牌识别计时；持有效缆车票可在缴费机扫码取得折扣。", map:"https://www.google.com/maps/search/?api=1&query=Brecon+Street+Multi+Storey+Car+Park+Queenstown", source:"https://queenstown.skyline.co.nz/getting-here/"}
+        ], map:"https://www.google.com/maps/dir/RealNZ+Queenstown+Visitor+Centre/Skyline+Queenstown"
       },
       {
         region:"Roadtrip", date:"10.1", week:"周四", title:"昂森温泉（Onsen）放松后，自驾去瓦纳卡（Wānaka）", summary:"峡谷私汤 → 皇冠山脉（Crown Range）→ 卡德罗纳（Cardrona）→ 湖边短步道", hotel:"梦想家园瓦纳卡（Dream Home Wānaka）", drive:"约 1 h 30 min + 停留", effort:"步行 4–5 km", tags:["Onsen 必玩","景观公路"], must:true,
@@ -581,7 +598,12 @@
           ["14:45","抵达瓦纳卡（Wānaka）、放行李","湖边咖啡 + 休息。"],
           ["16:15","瓦纳卡湖出口步道（Lake Wānaka Outlet Track）","从湖口走 2–2.5 km 后原路返回，总计约 1.5 小时。"],
           ["18:00","采购、自煮或中餐","晚上不再开远路。"]
-        ], food:"卡德罗纳酒店（Cardrona Hotel）午餐；瓦纳卡（Wānaka）可安排一顿中餐恢复，或买牛排 / 青口自煮。", rain:"取消出口步道（Outlet Track），改瓦纳卡（Wānaka）湖边 30 分钟 + 室内咖啡；昂森温泉（Onsen）仍可照常。", transit:"出口步道（Outlet Track）非环线，累了随时原路回；骑行者多，保持靠左并注意身后。", map:"https://www.google.com/maps/dir/Onsen+Hot+Pools/Cardrona+Hotel/Lake+Wanaka+Outlet+Track"
+        ], food:"卡德罗纳酒店（Cardrona Hotel）午餐；瓦纳卡（Wānaka）可安排一顿中餐恢复，或买牛排 / 青口自煮。", rain:"取消出口步道（Outlet Track），改瓦纳卡（Wānaka）湖边 30 分钟 + 室内咖啡；昂森温泉（Onsen）仍可照常。", transit:"出口步道（Outlet Track）非环线，累了随时原路回；骑行者多，保持靠左并注意身后。", parking:[
+          {name:"昂森温泉自驾停车（Onsen Hot Pools）", note:"导航至 160 Arthurs Point Road，停项目现场标记车位并提前 15 分钟抵达。若改免费接驳，集合点是 43 Camp Street，不是酒店接送。", map:"https://www.google.com/maps/search/?api=1&query=Onsen+Hot+Pools+160+Arthurs+Point+Road", source:"https://www.onsen.co.nz/about/faqs/"},
+          {name:"皇冠山脉观景停车带（Crown Range Lookout）", note:"只驶入有明确出入口和标线的观景停车带；弯道、坡顶和碎石路肩都不要临停。", map:"https://www.google.com/maps/search/?api=1&query=Crown+Range+Road+Scenic+Lookout"},
+          {name:"卡德罗纳酒店（Cardrona Hotel）", note:"驶入酒店自有停车区再午餐，不要把车停在皇冠山脉公路行车道或黄色虚线旁。", map:"https://www.google.com/maps/search/?api=1&query=Cardrona+Hotel+2312+Cardrona+Valley+Road", source:"https://cardronahotel.co.nz/contact-us/"},
+          {name:"冈恩路步道停车场（Gunn Road Car Park）", note:"DOC 推荐的 Outlet Track 入口之一，位于 Albert Town 的 Gunn Road 尽头；从这里走多少就原路返回多少。", map:"https://www.google.com/maps/search/?api=1&query=Gunn+Road+Car+Park+Albert+Town", source:"https://www.doc.govt.nz/parks-and-recreation/places-to-go/otago/places/wanaka-area/things-to-do/outlet-track/"}
+        ], map:"https://www.google.com/maps/dir/Onsen+Hot+Pools/Cardrona+Hotel/Lake+Wanaka+Outlet+Track"
       },
       {
         region:"Roadtrip", date:"10.2", week:"周五", title:"瓦纳卡（Wānaka）→ 奥拉基 / 库克山（Aoraki / Mt Cook）→ 特威泽尔（Twizel）", summary:"高地三文鱼（High Country Salmon）顺路吃，下午只走塔斯曼冰川短线", hotel:"特威泽尔一片天堂（Twizel accommodation）", drive:"约 4 h 分段驾驶", effort:"步行 1–3 km", tags:["10点出发","塔斯曼短线"],
@@ -593,7 +615,11 @@
           ["14:30","塔斯曼冰川观景步道（Tasman Glacier View Track）","约 40–60 分钟，300+ 台阶；看冰川湖与远端冰川。"],
           ["15:40","膝盖不舒服的替代","改塔斯曼湖河步道（Tasman Lake & River Track），约 50 分钟 / 2.5 km，较平。"],
           ["16:45","开往特威泽尔（Twizel）","约 50 分钟，入住后早吃早睡。"]
-        ], food:"高地三文鱼（High Country Salmon）为主餐；山里选择少，车上备水和零食。", rain:"游客中心 + 赫米蒂奇酒店（The Hermitage）咖啡；雨势大、80 号国道（SH80）有警示就不硬进山。", transit:"塔斯曼冰川观景步道（Tasman Glacier View Track）的台阶集中但短；停车场无饮水，提前装满。", map:"https://www.google.com/maps/dir/Wanaka/High+Country+Salmon/Peter's+Lookout/Tasman+Glacier+Car+Park/Twizel"
+        ], food:"高地三文鱼（High Country Salmon）为主餐；山里选择少，车上备水和零食。", rain:"游客中心 + 赫米蒂奇酒店（The Hermitage）咖啡；雨势大、80 号国道（SH80）有警示就不硬进山。", transit:"塔斯曼冰川观景步道（Tasman Glacier View Track）的台阶集中但短；停车场无饮水，提前装满。", parking:[
+          {name:"高地三文鱼停车场（High Country Salmon）", note:"餐厅入口旁自有停车区，作为林迪斯山口后第一段驾驶休息；不要停在 SH8 路肩。", map:"https://www.google.com/maps/search/?api=1&query=High+Country+Salmon+Twizel"},
+          {name:"彼得观景台（Peter’s Lookout）", note:"进入 SH80 后使用正式观景停车区拍普卡基湖；若车位满，继续前行，不在高速路肩倒车或等待。", map:"https://www.google.com/maps/search/?api=1&query=Peters+Lookout+Lake+Pukaki"},
+          {name:"塔斯曼谷停车场（Tasman Valley Car Park）", note:"道路尽头免费停汽车和露营车。旺季满位时，DOC 允许沿 Tasman Valley Road 谨慎停放，但必须完全避开行车线和黄色虚线。", map:"https://www.google.com/maps/search/?api=1&query=Tasman+Valley+Car+Park", source:"https://www.doc.govt.nz/parks-and-recreation/places-to-go/canterbury/places/aoraki-mount-cook-national-park/things-to-do/tracks/tasman-glacier-view-track/"}
+        ], map:"https://www.google.com/maps/dir/Wanaka/High+Country+Salmon/Peter's+Lookout/Tasman+Glacier+Car+Park/Twizel"
       },
       {
         region:"Roadtrip", date:"10.3", week:"周六", title:"胡克谷步道（Hooker Valley Track）轻徒步日", summary:"全程约 10 km，新吊桥 + 胡克湖（Hooker Lake）", hotel:"特威泽尔一片天堂（Twizel accommodation）", drive:"特威泽尔（Twizel）往返约 1 h 40 min", effort:"徒步 10 km / 3–4 h", tags:["唯一早出发","核心徒步"], must:true,
@@ -606,7 +632,9 @@
           ["13:35","回到停车场","若拍照多，最晚 14:10 结束即可。"],
           ["14:20","赫米蒂奇酒店（The Hermitage）咖啡 / 晚午餐","看山景、补热食，不再追加 Kea Point（短线观景步道）。"],
           ["15:40","返回特威泽尔（Twizel）休息","晚餐自煮，整理第二天行李。"]
-        ], food:"前晚准备三明治、能量棒、热水；下山后去赫米蒂奇酒店（The Hermitage）吃热食。", rain:"强风 / 持续雨：改 Kea Point（短线观景步道，约 1 h）+ 塔斯曼湖（Tasman Lake）平路，胡克谷（Hooker）不硬走。", transit:"官方显示特威泽尔（Twizel）到起点约 50 分钟；山区天气变化很快，始终走标记步道。", map:"https://www.google.com/maps/dir/Twizel/White+Horse+Hill+Campground/The+Hermitage+Hotel+Mt+Cook/Twizel"
+        ], food:"前晚准备三明治、能量棒、热水；下山后去赫米蒂奇酒店（The Hermitage）吃热食。", rain:"强风 / 持续雨：改 Kea Point（短线观景步道，约 1 h）+ 塔斯曼湖（Tasman Lake）平路，胡克谷（Hooker）不硬走。", transit:"官方显示特威泽尔（Twizel）到起点约 50 分钟；山区天气变化很快，始终走标记步道。", parking:[
+          {name:"白马山停车场（White Horse Hill Car Park）", note:"胡克谷步道起点。当前收费 NZD 2.50 / 30 分钟或 NZD 25 / 天；超过 20 分钟须到场先付，只收借记卡 / 信用卡。上午 10–16 点最拥挤，尽量 09:50 前到。", map:"https://www.google.com/maps/search/?api=1&query=White+Horse+Hill+Car+Park", source:"https://www.doc.govt.nz/hooker-valley-track"}
+        ], map:"https://www.google.com/maps/dir/Twizel/White+Horse+Hill+Campground/The+Hermitage+Hotel+Mt+Cook/Twizel"
       },
       {
         region:"Tekapo", date:"10.4", week:"周日", title:"特威泽尔（Twizel）→ 蒂卡普湖（Lake Tekapo）· 湖光与第一晚星空", summary:"普卡基湖（Lake Pukaki）补拍 → 好牧羊人教堂（Church of the Good Shepherd）→ 自助观星", hotel:"特卡波峰湖（Lake Tekapo accommodation）", drive:"约 1 h 15 min + 停留", effort:"步行约 4 km", tags:["10点出发","自助观星"],
@@ -619,7 +647,10 @@
           ["16:30","回住宿休息","给夜间保留体力，18:00 左右吃晚餐。"],
           ["19:30","湖边日落","风大就不久留，回住宿等天黑。"],
           ["约 21:30","住宿附近免费观星","先肉眼适应 15–20 分钟；关闭车灯和白光。"]
-        ], food:"湖畔日料（Kohan）三文鱼丼或镇中心简餐；观星前吃完正餐。", rain:"把湖岸改为咖啡 + 蒂卡普温泉（Tekapo Springs）；星空留给 10.5 付费团。", transit:"好牧羊人教堂（Church of the Good Shepherd）夜间需保持安静，车灯不要直射拍摄者；不要翻越私有地。", map:"https://www.google.com/maps/dir/Twizel/Lake+Pukaki+Viewpoint/Mt+Cook+Alpine+Salmon+Shop/Church+of+the+Good+Shepherd"
+        ], food:"湖畔日料（Kohan）三文鱼丼或镇中心简餐；观星前吃完正餐。", rain:"把湖岸改为咖啡 + 蒂卡普温泉（Tekapo Springs）；星空留给 10.5 付费团。", transit:"好牧羊人教堂（Church of the Good Shepherd）夜间需保持安静，车灯不要直射拍摄者；不要翻越私有地。", parking:[
+          {name:"普卡基湖游客中心停车场（Lake Pukaki Visitor Centre）", note:"从特威泽尔出发先停南端游客中心；若 10.2 已在 Peter’s Lookout 拍够，这里短停 10–15 分钟即可。", map:"https://www.google.com/maps/search/?api=1&query=Lake+Pukaki+Visitor+Centre+Car+Park"},
+          {name:"莫图阿里基巷停车场（Motuariki Lane Car Park）", note:"去好牧羊人教堂更推荐停在村镇一侧，再经行人桥步行约 400 米。教堂官网提示 Pioneer Drive 车位已经很有限，不建议在住宅区找路边位。", map:"https://www.google.com/maps/search/?api=1&query=Motuariki+Lane+Car+Park+Lake+Tekapo", source:"https://www.churchofthegoodshepherd.org.nz/visit"}
+        ], map:"https://www.google.com/maps/dir/Twizel/Lake+Pukaki+Viewpoint/Mt+Cook+Alpine+Salmon+Shop/Church+of+the+Good+Shepherd"
       },
       {
         region:"Tekapo", date:"10.5", week:"周一", title:"蒂卡普湖（Lake Tekapo）休闲日 · 山顶咖啡、温泉与观星", summary:"约翰山（Mt John）→ 蒂卡普温泉（Tekapo Springs）→ 暗夜星空项目（Dark Sky Project）", hotel:"特卡波峰湖（Lake Tekapo accommodation）", drive:"本地短途", effort:"轻量休息日", tags:["温泉","观星黄金夜"], must:true,
@@ -631,7 +662,11 @@
           ["18:30","提早晚餐","不饮太多酒，带帽子、手套、羽绒。"],
           ["按预订","暗夜星空山顶 / 陨石坑体验（Dark Sky Summit / Crater Experience）","提前 20 分钟到莫图阿里基巷 1 号（1 Motuariki Lane）报到。"],
           ["夜间","月光条件优秀","10.5 月亮 13:23 已落，夜间前半段无月光干扰。"]
-        ], food:"天文咖啡馆（Astro Café）看景；镇上正餐尽量 18:00 前完成，带热水上团。", rain:"官方判定无法观星时可改期、转券或退款；可改室内暗夜星空体验（Dark Sky Experience）。", transit:"山顶体验（Summit）风更大；陨石坑体验（Crater）更轻松。若怕冷或晕车，优先 Crater。", map:"https://www.google.com/maps/dir/Lake+Tekapo/Mt+John+Observatory/Tekapo+Springs/Dark+Sky+Project"
+        ], food:"天文咖啡馆（Astro Café）看景；镇上正餐尽量 18:00 前完成，带热水上团。", rain:"官方判定无法观星时可改期、转券或退款；可改室内暗夜星空体验（Dark Sky Experience）。", transit:"山顶体验（Summit）风更大；陨石坑体验（Crater）更轻松。若怕冷或晕车，优先 Crater。", parking:[
+          {name:"约翰山山顶停车场（Mt John Summit Car Park）", note:"白天可驾车上山，入口在 Godley Peaks Road。当前道路 10:00–16:00 开放、每车 NZD 14 刷卡；山顶停咖啡馆旁，天气差会关闭。", map:"https://www.google.com/maps/search/?api=1&query=Astro+Cafe+Mount+John+Observatory", source:"https://www.darkskyproject.co.nz/dine/astro-cafe/"},
+          {name:"蒂卡普温泉停车场（Tekapo Springs）", note:"项目现场有充足免费汽车和巴士停车位；泡完后直接回住宿休息，不必再把车停回镇中心。", map:"https://www.google.com/maps/search/?api=1&query=Tekapo+Springs+Car+Park", source:"https://tekaposprings.co.nz/faqs/"},
+          {name:"暗夜星空项目集合点（Dark Sky Project Base）", note:"报到地址为 1 Motuariki Lane。晚间是否需要自行驾车上山以订单说明为准；普通游客不要在道路关闭后自行驶上 Mt John。", map:"https://www.google.com/maps/search/?api=1&query=Dark+Sky+Project+1+Motuariki+Lane", source:"https://www.darkskyproject.co.nz/dine/astro-cafe/"}
+        ], map:"https://www.google.com/maps/dir/Lake+Tekapo/Mt+John+Observatory/Tekapo+Springs/Dark+Sky+Project"
       },
       {
         region:"Tekapo", date:"10.6", week:"周二", title:"蒂卡普湖（Lake Tekapo）→ 基督城（Christchurch）· 花园收尾", summary:"费尔利（Fairlie）吃派，基督城植物园（Christchurch Botanic Gardens）散步，机场步行酒店早睡", hotel:"必须改为基督城机场（Christchurch Airport）步行酒店", drive:"约 3 h 15 min + 停留", effort:"步行约 3 km", tags:["返程前夜","必须住酒店"],
@@ -643,7 +678,11 @@
           ["16:00","还车、入住机场酒店","把第二天证件和登机物品全部整理好。"],
           ["17:30","早晚餐","机场周边简单吃，19:30 前回房间。"],
           ["20:30","睡觉","6:20 航班建议 3:30 左右起床。"]
-        ], food:"费尔利（Fairlie）咸派作早午餐；机场附近早晚餐，避免回市区。", rain:"直接略过基督城植物园（Christchurch Botanic Gardens），提前还车与入住。", transit:"基督城机场（Christchurch Airport）3:00 开门且没有睡眠设施；诺富特（Novotel）/ 苏迪玛（Sudima）/ 莱洛（LyLo）均为步行选项。", map:"https://www.google.com/maps/dir/Lake+Tekapo/Fairlie+Bakehouse/Christchurch+Botanic+Gardens/Christchurch+Airport"
+        ], food:"费尔利（Fairlie）咸派作早午餐；机场附近早晚餐，避免回市区。", rain:"直接略过基督城植物园（Christchurch Botanic Gardens），提前还车与入住。", transit:"基督城机场（Christchurch Airport）3:00 开门且没有睡眠设施；诺富特（Novotel）/ 苏迪玛（Sudima）/ 莱洛（LyLo）均为步行选项。", parking:[
+          {name:"费尔利主街停车位（Main Street Fairlie）", note:"烘焙坊附近使用划线车位；当地 Main Street 主要为 P120，够吃派休息。不要占 P10、装卸区或巴士位。", map:"https://www.google.com/maps/search/?api=1&query=Fairlie+Bakehouse+Main+Street+Fairlie", source:"https://www.mackenzie.govt.nz/services/roading-and-transport/parking"},
+          {name:"阿马街植物园停车场（Armagh Street Car Park）", note:"距离植物园游客中心最近。付费、最长 P180；10 月开放停车约 07:00–20:30，务必在关门前驶离。", map:"https://www.google.com/maps/search/?api=1&query=Armagh+Street+Botanic+Gardens+Car+Park+Christchurch", source:"https://ccc.govt.nz/parks-and-gardens/explore-parks/hagley-park-and-gardens"},
+          {name:"基督城机场租车还车区（Rental Car Returns）", note:"加满油后直接按租车公司订单进入对应还车车道；不要先停航站楼普通停车场。拍油表、里程、车身和钥匙交还位置。", map:"https://www.google.com/maps/search/?api=1&query=Christchurch+Airport+Rental+Car+Returns"}
+        ], map:"https://www.google.com/maps/dir/Lake+Tekapo/Fairlie+Bakehouse/Christchurch+Botanic+Gardens/Christchurch+Airport"
       },
       {
         region:"Tekapo", date:"10.7", week:"周三", title:"基督城（Christchurch）返程日", summary:"步行进入基督城机场（Christchurch Airport）航站楼，搭乘 6:20 已订航班", hotel:"—", drive:"酒店步行 / 接驳", effort:"早起日", tags:["返程"],
@@ -1017,6 +1056,10 @@
               <div class="tags">${d.tags.map(t => `<span class="tag ${d.must ? 'must' : ''}">${t}</span>`).join('')}</div>
             </div>
             <ol class="timeline">${d.events.map(e => `<li><span class="time">${e[0]}</span><div class="event"><b>${e[1]}</b><span>${e[2]}</span></div></li>`).join('')}</ol>
+            ${d.parking?.length ? `<aside class="parking-note" aria-label="当日停车参考">
+              <div class="parking-note-head"><b>🅿 当日停车参考</b><span>到场仍以路牌、地面标线和缴费机为准</span></div>
+              <div class="parking-spots">${d.parking.map(p => `<div class="parking-spot"><strong>${p.name}</strong><p>${p.note}</p><div class="parking-links"><a href="${p.map}" target="_blank" rel="noreferrer">地图定位 ↗</a>${p.source ? `<a href="${p.source}" target="_blank" rel="noreferrer">官方规则 ↗</a>` : ''}</div></div>`).join('')}</div>
+            </aside>` : ''}
             <details><summary>展开当日锦囊</summary><div class="detail-grid">
               <div class="mini"><b>🍴 吃什么</b><span>${d.food}</span></div>
               <div class="mini"><b>🌧️ 天气替代</b><span>${d.rain}</span></div>
